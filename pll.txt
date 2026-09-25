@@ -1,0 +1,88 @@
+operate PPL (5.6GHz)
+
+mixer subracts (5.8 - 5.6GHZ) = 200 MHz
+
+antenna (150MHz bandwith; operates at 5.8GHz)
+
+
+f_vco = f_pd * PLL_N_PRE * PLL_N
+	using reference f doubler, f_pd = 200MHz
+	prescaler set to 2 or 4, use 2 for lower noise
+	PLL_N = 14
+
+phase noise: random fluctuations in phase
+flat in-band noise: phase noise by PLL (aka PLL noise floor)
+open-loop noise: phase noise of VCO running free
+jitter: how much signal edges deviate from timing
+	integrate phase noise
+flicker noise: power spectral density inversely proportional to f
+	drops off at high offset frequency (louder around 5.6GHz)
+	(aka 1/f noise)
+offset frequency: distance of measured frequency from real 5.6GHz signal
+	corner frequency: where downward slope of flicker noise intersects flat line of noise floor
+		below corner: flicker noise dominates signal
+
+
+components to select 
+
+REFERENCE OSCILLATOR (100MHz)
+TCXO Clipped Sinewave or CMOS
+	Abracon ASTX-13-C-100.000MHz-I05-T
+	Taitien TT-type
+
+REGULATORS (LDO; 5V to 3.3V)
+separate regulator for digital supply
+	TI LP5912-3.3
+	TPS7A9101
+
+
+PASSIVE LOOP FILTER DESIGN
+3rd-order
+integrator -- smooths current pulses from PFD -> DC tuning voltage
+loop bandwith of 150kHz to 200kHz (lowest jitter: PLL flat in-band noise intersects VCO open-loop noise)
+phase margin ~65 deg
+use c0g/np0 caps
+
+RF OUTPUT STAGE
+coupling cap 100pF C0G
+50 ohm pull up to 3.3V (inductors at this f cause parasitic elements)
+
+
+
+
+
+"
+Critical Register Values for 5.6 GHz
+When initializing the device over 4-wire SPI (24-bit words: 1-bit R/W + 7-bit Address + 16-bit Data) [source: 1]:
+
+R0: 0x00241A (Reset = 1, then clear; set FCAL_HPFD_ADJ = 0 for 200 MHz PFD [source: 1], LD_EN = 1 for Lock Detect [source: 1]).
+
+R10: Set OSC_2X = 1 (Bit 11) to double the 100 MHz reference to 200 MHz [source: 1].
+
+R11: Set MULT = 1 (Bypass multiplier) [source: 1].
+
+R12 & R13: Set PLL_R = 1 and PLL_R_PRE = 1 [source: 1].
+
+R14: Configure Charge Pump: Set CP_IDN = 3, CP_IUP = 3, CP_ICOARSE = 2 (or adjust gain to scale bandwidth) [source: 1].
+
+R30: Set VTUNE_ADJ = 0 (required for f 
+VCO
+​
+ <6500 MHz) and VCO_2X_EN = 0 [source: 1].
+
+R31: Set VCO_DISTB_PD = 1 (power down Output B buffer to save current) and VCO_DISTA_PD = 0 [source: 1].
+
+R34: Set CHDIV_EN = 0 (channel dividers disabled; not needed) [source: 1].
+
+R37: Set PLL_N_PRE = 0 (Divide-by-2 prescaler) [source: 1].
+
+R38: Set PLL_N = 14 (14×2×200 MHz=5600 MHz) [source: 1].
+
+R40–R45: Set PLL_NUM = 0, PLL_DEN = 1000 (Fractional numerator = 0) [source: 1].
+
+R46: Set MASH_ORDER = 0 (Integer-N mode) [source: 1], OUTB_PD = 1 [source: 1], OUTA_PD = 0 [source: 1].
+
+R47: Set OUTA_MUX = 1 (Select direct VCO output) and OUTA_POW = 31 (or up to 63 for maximum output swing) [source: 1].
+
+Trigger Lock: Program R0 with FCAL_EN = 1 to initiate the auto-calibration state machine [source: 1]. Check MUXout (Pin 20) for logic HIGH to confirm lock [source: 1].
+"
