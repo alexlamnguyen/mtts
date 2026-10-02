@@ -50,39 +50,3 @@ coupling cap 100pF C0G
 
 
 
-
-"
-Critical Register Values for 5.6 GHz
-When initializing the device over 4-wire SPI (24-bit words: 1-bit R/W + 7-bit Address + 16-bit Data) [source: 1]:
-
-R0: 0x00241A (Reset = 1, then clear; set FCAL_HPFD_ADJ = 0 for 200 MHz PFD [source: 1], LD_EN = 1 for Lock Detect [source: 1]).
-
-R10: Set OSC_2X = 1 (Bit 11) to double the 100 MHz reference to 200 MHz [source: 1].
-
-R11: Set MULT = 1 (Bypass multiplier) [source: 1].
-
-R12 & R13: Set PLL_R = 1 and PLL_R_PRE = 1 [source: 1].
-
-R14: Configure Charge Pump: Set CP_IDN = 3, CP_IUP = 3, CP_ICOARSE = 2 (or adjust gain to scale bandwidth) [source: 1].
-
-R30: Set VTUNE_ADJ = 0 (required for f 
-VCO
-​
- <6500 MHz) and VCO_2X_EN = 0 [source: 1].
-
-R31: Set VCO_DISTB_PD = 1 (power down Output B buffer to save current) and VCO_DISTA_PD = 0 [source: 1].
-
-R34: Set CHDIV_EN = 0 (channel dividers disabled; not needed) [source: 1].
-
-R37: Set PLL_N_PRE = 0 (Divide-by-2 prescaler) [source: 1].
-
-R38: Set PLL_N = 14 (14×2×200 MHz=5600 MHz) [source: 1].
-
-R40–R45: Set PLL_NUM = 0, PLL_DEN = 1000 (Fractional numerator = 0) [source: 1].
-
-R46: Set MASH_ORDER = 0 (Integer-N mode) [source: 1], OUTB_PD = 1 [source: 1], OUTA_PD = 0 [source: 1].
-
-R47: Set OUTA_MUX = 1 (Select direct VCO output) and OUTA_POW = 31 (or up to 63 for maximum output swing) [source: 1].
-
-Trigger Lock: Program R0 with FCAL_EN = 1 to initiate the auto-calibration state machine [source: 1]. Check MUXout (Pin 20) for logic HIGH to confirm lock [source: 1].
-"
