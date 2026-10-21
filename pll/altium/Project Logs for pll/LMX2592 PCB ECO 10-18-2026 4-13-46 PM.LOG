@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=REF_SRC_P Pin=Y2-4
+Removed Pin From Net: NetName=REF_SRC_N Pin=Y2-5
+Added Pin To Net: NetName=REF_SRC_N Pin=Y2-4
+Added Pin To Net: NetName=REF_SRC_P Pin=Y2-5

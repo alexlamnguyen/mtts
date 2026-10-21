@@ -1,0 +1,6 @@
+Change Net Name : Old Net Name=NetC4_1 New Net Name=REF_SRC_P
+Change Net Name : Old Net Name=NetC4_2 New Net Name=REF_CLK_P
+Change Net Name : Old Net Name=NetC5_1 New Net Name=REF_SRC_N
+Change Net Name : Old Net Name=NetC5_2 New Net Name=REF_CLK_N
+Added Differential Pair: Name=REF_CLK
+Added Differential Pair: Name=REF_SRC
