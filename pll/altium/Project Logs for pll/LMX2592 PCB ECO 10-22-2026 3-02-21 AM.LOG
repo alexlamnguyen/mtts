@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=GND Pin=R100-1
+Removed Pin From Net: NetName=RFoutA_P Pin=R100-2
+Removed Pin From Net: NetName=RFoutA_N Pin=R101-1
+Removed Pin From Net: NetName=GND Pin=R101-2
+Removed Member From Class: ClassName=LMX2592 Member=R100
+Removed Member From Class: ClassName=LMX2592 Member=R101

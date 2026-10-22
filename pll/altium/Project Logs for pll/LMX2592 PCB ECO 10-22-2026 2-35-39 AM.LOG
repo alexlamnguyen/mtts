@@ -1,0 +1,35 @@
+Removed Pin From Net: NetName=GND Pin=J1-2
+Removed Pin From Net: NetName=GND Pin=J1-3
+Removed Pin From Net: NetName=GND Pin=J1-4
+Removed Pin From Net: NetName=GND Pin=J1-5
+Removed Pin From Net: NetName=GND Pin=J2-2
+Removed Pin From Net: NetName=GND Pin=J2-3
+Removed Pin From Net: NetName=GND Pin=J2-4
+Removed Pin From Net: NetName=GND Pin=J2-5
+Removed Pin From Net: NetName=GND Pin=J3-2
+Removed Pin From Net: NetName=GND Pin=J3-3
+Removed Pin From Net: NetName=GND Pin=J3-5
+Change Component Footprint: Designator=J1 Old Footprint=CONN_142-0701-851_CIN New Footprint=CONN_142-0711-821_CIN
+Change Component Footprint: Designator=J2 Old Footprint=CONN_142-0701-851_CIN New Footprint=CONN_142-0711-821_CIN
+Change Component Footprint: Designator=J3 Old Footprint=CONN_142-0701-851_CIN New Footprint=CONN_142-0711-821_CIN
+Change Component Comment : Designator=J1 Old Comment=142-0701-851 New Comment=142-0711-821
+Change Component Comment : Designator=J2 Old Comment=142-0701-851 New Comment=142-0711-821
+Change Component Comment : Designator=J3 Old Comment=142-0701-851 New Comment=142-0711-821
+Change component parameters: Designator = "J1" ("J1"); Footprint = "CONN_142-0701-851_CIN"; UniqueID = "\OYCIIGNV" ("\OYCIIGNV")
+Change component parameters (AddParameter): Name = "Copyright"; Value = "Copyright (C) 2026 Ultra Librarian. All rights reserved."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Name"; Value = "Cinch Connectivity Solutions"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "142-0711-821"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J2" ("J2"); Footprint = "CONN_142-0701-851_CIN"; UniqueID = "\HESQMBYH" ("\HESQMBYH")
+Change component parameters (AddParameter): Name = "Copyright"; Value = "Copyright (C) 2026 Ultra Librarian. All rights reserved."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Name"; Value = "Cinch Connectivity Solutions"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "142-0711-821"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Change component parameters: Designator = "J3" ("J3"); Footprint = "CONN_142-0701-851_CIN"; UniqueID = "\KGDPZWTH" ("\KGDPZWTH")
+Change component parameters (AddParameter): Name = "Copyright"; Value = "Copyright (C) 2026 Ultra Librarian. All rights reserved."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Name"; Value = "Cinch Connectivity Solutions"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "142-0711-821"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
